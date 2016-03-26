@@ -172,6 +172,7 @@ int ICACHE_FLASH_ATTR gpio_write(unsigned pin, unsigned level)
 		return 1;
 	}
 	GPIO_OUTPUT_SET(GPIO_ID_PIN(pin_num[pin]), level);
+	return 0;
 }
 
 int ICACHE_FLASH_ATTR gpio_read(unsigned pin)
