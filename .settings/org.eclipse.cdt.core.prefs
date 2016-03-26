@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1735612825/PATH/delimiter=\:
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1735612825/PATH/operation=replace
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1735612825/PATH/value=${PATH}\:/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/usr/games\:/usr/local/games\:/opt/Espressif/crosstool-NG/g++/crosstool-NG/builds/xtensa-lx106-elf/include\:/opt/Espressif/crosstool-NG/g++/crosstool-NG/builds/xtensa-lx106-elf/bin
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1735612825/append=true
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1735612825/appendContributed=true
