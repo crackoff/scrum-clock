@@ -16,7 +16,6 @@
 #include "driver/uart.h"
 #include "driver/gpio16.h"
 
-extern void ets_delay_us(uint32_t);
 extern void ets_bzero(void*, size_t);
 extern void ets_timer_arm(ETSTimer*, uint32_t, bool);
 extern void ets_timer_disarm(ETSTimer*);
@@ -27,6 +26,8 @@ extern int ets_uart_printf(const char *fmt, ...);
 extern int ets_memcpy(void *, const void *, size_t);
 extern size_t ets_strlen (const char*);
 extern char *ets_strstr (const char *, const char *);
+extern int atoi(const char *nptr);
+extern void *ets_memset (void *, int , size_t);
 
 #define RS_GPIO 2
 #define E_GPIO 4
