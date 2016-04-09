@@ -28,10 +28,10 @@ private:
 	void ModelToRow(uint8 r, uint8* row, uint8 offset, uint8* model);
 };
 
-class Font5x8 : public Font
+class Font6x8 : public Font
 {
 public:
-	Font5x8();
+	Font6x8();
 	void DrawSymbol(uint8* row1, uint8* row2, uint8 row, uint8 offset, uint8 charIndex);
 	uint8 GetSymbolWidth();
 };

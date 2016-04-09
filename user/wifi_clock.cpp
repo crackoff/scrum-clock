@@ -19,31 +19,6 @@ wifi_clock_on_draw_cb global_wifi_clock_on_draw_cb;
 wifi_clock_time global_wifi_clock_time;
 
 ICACHE_FLASH_ATTR
-char *get_current_time(char *current_time)
-{
-	uint32 rtc = system_get_rtc_time();
-	uint32 cal = system_rtc_clock_cali_proc();
-
-	uint64 curr_time = ( ((uint64) (rtc - _user_time.init_clock)) * ((uint64) ((cal * 1000) >> 12)) );
-	uint32 second = _user_time.init_second + curr_time / 1000000000l;
-	uint16 minute = _user_time.init_minute;
-	uint16 hour = _user_time.init_hour + TIMEZONE;
-	if (second >= 60) {
-		minute += second / 60;
-		second %= 60;
-		if (minute >= 60) {
-			hour += minute / 60;
-			minute %= 60;
-			while (hour >= 24)
-				hour -= 24;
-		}
-	}
-
-	ets_sprintf(current_time, "%02d:%02d:%02d", hour, minute, second);
-	return current_time;
-}
-
-ICACHE_FLASH_ATTR
 wifi_clock_time get_current_time()
 {
 	uint32 rtc = system_get_rtc_time();
@@ -74,8 +49,6 @@ wifi_clock_time get_current_time()
 ICACHE_FLASH_ATTR
 void wifi_clock_update()
 {
-	char current_time[16];
-	//print_lcd("Time = ", get_current_time(current_time));
 	wifi_clock_time time = get_current_time();
 
 	uint8 dots = 0;
@@ -152,7 +125,6 @@ void wifi_clock_init()
 	os_timer_disarm(global_timer);
 
 	bool cnt = true;
-	uint8 line2[] = {1,1,1,1,1,1};
 
 	switch (wifi_station_get_connect_status()) {
 	case STATION_GOT_IP:
@@ -179,8 +151,7 @@ void wifi_clock_init()
 		cnt = false;
 		break;
 	default:
-		//print_lcd("Initializing...", "");
-		print_lcd(line2, 6);
+		print_lcd_loading();
 		break;
 	}
 

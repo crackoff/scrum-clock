@@ -20,6 +20,8 @@
 
 void init_lcd();
 void print_lcd(uint8* line, uint8 len);
+void print_lcd_turn_on();
+void print_lcd_loading();
 void print_lcd_time(uint8 hour, uint8 minute, uint8 dots);
 
 #endif /* INCLUDE_PRINT_LCD_H_ */

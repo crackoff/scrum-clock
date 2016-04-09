@@ -50,8 +50,7 @@ user_init(void)
 	ets_strcpy(ps.wifi_ssid, "TheDarkSoul");
 	ets_strcpy(ps.wifi_pass, "19216801");
 
-	uint8 line[] = {0,0,0,0,0,0};
-	print_lcd(line, 6);
+	print_lcd_turn_on();
 
 	// Init device in clock mode
 	wifi_init_station(&ps, &_global_timer, (os_timer_func_t *) wifi_clock_init);
