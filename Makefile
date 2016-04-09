@@ -64,7 +64,7 @@ FW_FILE_2_ADDR	= 0x40000
 CC		:= $(XTENSA_TOOLS_ROOT)/xtensa-lx106-elf-gcc
 CXX		:= $(XTENSA_TOOLS_ROOT)/xtensa-lx106-elf-g++
 AR		:= $(XTENSA_TOOLS_ROOT)/xtensa-lx106-elf-ar
-LD		:= $(XTENSA_TOOLS_ROOT)/xtensa-lx106-elf-gcc
+LD		:= $(XTENSA_TOOLS_ROOT)/xtensa-lx106-elf-g++
 
 
 

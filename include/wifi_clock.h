@@ -8,8 +8,18 @@
 #ifndef INCLUDE_WIFI_CLOCK_H_
 #define INCLUDE_WIFI_CLOCK_H_
 
+struct wifi_clock_time
+{
+	uint8 hour;
+	uint8 minute;
+	uint8 second;
+};
+
+typedef void (* wifi_clock_on_draw_cb)(wifi_clock_time *arg);
+
 void wifi_clock_init();
 void wifi_clock_set_timer(os_timer_t* timer);
+void wifi_clock_set_draw_cb(wifi_clock_on_draw_cb* cb);
 
 struct u_time
 {

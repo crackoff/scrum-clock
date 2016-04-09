@@ -26,6 +26,7 @@ struct flash_params {
 	char wifi_ssid[32];
 	char wifi_pass[64];
 	uint8_t play_sound;
+	uint8_t timezone;
 	uint8_t clock_positions_count;
 	uint8_t position_angles[16];
 	uint16_t times[16];

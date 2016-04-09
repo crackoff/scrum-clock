@@ -9,8 +9,17 @@
 #define INCLUDE_PRINT_LCD_H_
 
 #include "c_types.h"
+#include "driver/mt6116.hpp"
 
-//void print_lcd(const char* line1, const char* line2);
-//void print_lcd(const char* line1, uint32_t line2);
+#define MT6116_LATCH_PIN 2
+#define MT6116_CLOCK_PIN 0
+#define MT6116_DATA_PIN 1
+#define MT6116_A0_PIN 6
+#define MT6116_E_PIN 7
+#define MT6116_RESET_PIN 5
+
+void init_lcd();
+void print_lcd(uint8* line, uint8 len);
+void print_lcd_time(uint8 hour, uint8 minute, uint8 dots);
 
 #endif /* INCLUDE_PRINT_LCD_H_ */
