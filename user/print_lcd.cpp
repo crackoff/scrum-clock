@@ -48,12 +48,17 @@ void print_lcd_turn_on()
 	print_lcd_small(line, 7, 0, 0, 7, 0);
 }
 
-void print_lcd_time(uint8 hour, uint8 minute, uint8 dots)
+void print_lcd_time(uint8 hour, uint8 minute, uint8 dots, uint8 mon, uint8 day)
 {
 	uint8 digit[2];
 	MT6116 mt6116(MT6116_LATCH_PIN, MT6116_CLOCK_PIN, MT6116_DATA_PIN, MT6116_A0_PIN, MT6116_E_PIN, MT6116_RESET_PIN);
 	Font8x16 font8x16;
 	Font6x8 font6x8;
+	uint8 months[12][3] =
+	{
+			{32, 22, 11}, {29, 14, 11}, {21, 10, 26}, {10, 25, 26}, {21, 10, 23}, {23, 31, 22},
+			{23, 31, 20}, {10, 11, 18}, {12, 14, 22}, {0, 24, 27}, {22, 0, 32}, {19, 14, 24}
+	};
 
 	mt6116.Init();
 	mt6116.Clear();
@@ -71,9 +76,10 @@ void print_lcd_time(uint8 hour, uint8 minute, uint8 dots)
 	digit[1] = minute % 10;
 	mt6116.DrawLine(&font8x16, 0, 23, digit, 2);
 
-	uint8 mon[3] = { 10, 25, 26 };
-	mt6116.DrawLine(&font6x8, 0, 41, mon, 3);
-	uint8 dat[2] = { 0, 9 };
+	mt6116.DrawLine(&font6x8, 0, 41, months[mon-1], 3);
+	uint8 dat[2];
+	dat[0] = day / 10;
+	dat[1] = day % 10;
 	mt6116.DrawLine(&font6x8, 1, 45, dat, 2);
 
 	mt6116.Flush();

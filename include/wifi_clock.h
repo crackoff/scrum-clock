@@ -13,6 +13,8 @@ struct wifi_clock_time
 	uint8 hour;
 	uint8 minute;
 	uint8 second;
+	uint8 day;
+	uint8 month;
 };
 
 typedef void (* wifi_clock_on_draw_cb)(wifi_clock_time *arg);
@@ -28,6 +30,8 @@ struct u_time
 	uint8 init_hour;
 	uint8 init_minute;
 	uint8 init_second;
+	uint8 init_month;
+	uint8 init_day;
 	uint32 magic;
 };
 
